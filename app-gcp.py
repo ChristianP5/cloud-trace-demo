@@ -128,3 +128,6 @@ def simulate_error():
 
     current_span.add_event(f"Finished simulating error with an exception")
     logging.getLogger(__name__).info("Finished simulating error with an exception")
+
+
+app.run(host='0.0.0.0', port=8080, debug=True)
