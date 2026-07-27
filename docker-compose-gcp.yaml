@@ -6,8 +6,9 @@ services:
     ports:
       - "4317:4317"
       - "4318:4318"
+      - "55681:55681"
     volumes:
-      - ./otel-collector-config.yaml:/etc/otel-collector-config.yaml
+      - ./otel-collector-config-gcp.yaml:/etc/otel-collector-config.yaml
     command: --config=/etc/otel-collector-config.yaml
     networks:
       - traces

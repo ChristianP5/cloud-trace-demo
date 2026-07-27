@@ -1,6 +1,14 @@
 # To run:
 flask run -p 8080
 
+# To send telemetry to a local OpenTelemetry Collector:
+# 1. Start the collector
+#    docker compose up -d otel-collector
+# 2. Run the app with the collector endpoint set
+#    OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 flask run -p 8080
+#    If you run the app inside Docker, use the collector service name instead:
+#    OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4318 flask run -p 8080
+
 # To access:
 http://localhost:8080/rolldice
 
