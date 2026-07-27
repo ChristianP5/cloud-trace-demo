@@ -19,10 +19,8 @@ resource = Resource.create(attributes={
     SERVICE_NAME: "dice-roller-service",
 })
 
-otlp_endpoint = os.getenv("OTEL_EXPORTER_OTLP_ENDPOINT", "http://localhost:4318")
-
 tracerProvider = TracerProvider(resource=resource)
-processor = BatchSpanProcessor(OTLPSpanExporter(endpoint=f"{otlp_endpoint}/v1/traces"))
+processor = BatchSpanProcessor(OTLPSpanExporter(endpoint="http://localhost:4318/v1/traces"))
 tracerProvider.add_span_processor(processor)
 
 # Sets the global default tracer provider
@@ -43,7 +41,7 @@ from opentelemetry.sdk.metrics.export import (
 )
 
 reader = PeriodicExportingMetricReader(
-    OTLPMetricExporter(endpoint=f"{otlp_endpoint}/v1/metrics")
+    OTLPMetricExporter(endpoint="http://localhost:4318/v1/metrics")
 )
 meterProvider = MeterProvider(resource=resource, metric_readers=[reader])
 metrics.set_meter_provider(meterProvider)
