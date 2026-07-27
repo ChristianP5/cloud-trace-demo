@@ -11,13 +11,6 @@ services:
     networks:
       - traces
 
-services:
-  otel-collector:
-    image: otel/opentelemetry-collector:latest
-    ports:
-      - "4317:4317"
-    command: --config=/etc/otel-collector-config.yaml
-
 networks:
   # The presence of these objects is sufficient to define them
   traces: {}
