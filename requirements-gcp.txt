@@ -1,3 +1,5 @@
 flask
 opentelemetry-api
 opentelemetry-sdk
+opentelemetry-semantic-conventions
+opentelemetry-exporter-otlp-proto-http
